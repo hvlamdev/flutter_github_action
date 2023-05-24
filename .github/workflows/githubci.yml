@@ -50,6 +50,6 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/app-dev-release.apk"
           tag: v1.0.${{ github.run_number }}
-          token: "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"
+          token: "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"
           allowUpdates: true
           replacesArtifacts: false
