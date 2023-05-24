@@ -8,21 +8,21 @@ on:
 
 jobs:
   # Build job
-  build_ios:
-    name: Build IOS
-    runs-on: macos-latest
-    steps:
-      # Checks-out our repository under $GITHUB_WORKSPACE, so our job can access it
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      # Install flutter
-      - name: Flutter get
-        uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '3.3.7'
+#   lay_source_ve:
+#     name: Build IOS
+#     runs-on: macos-latest
+#     steps:
+#       # Checks-out our repository under $GITHUB_WORKSPACE, so our job can access it
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+#       # Install flutter
+#       - name: Flutter get
+#         uses: subosito/flutter-action@v1
+#         with:
+#           flutter-version: '3.7.3'
 
-      # Install your project's dependencies
-      - run: flutter pub get
+#       # Install your project's dependencies
+#       - run: flutter pub get
 
 
   build_android:
@@ -35,7 +35,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.7'
+          flutter-version: '3.7.3'
           channel: 'stable'
       - name: Get Branch Name
         id: branch
