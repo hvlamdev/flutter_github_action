@@ -8,21 +8,21 @@ on:
 
 jobs:
   # Build job
-#   lay_source_ve:
-#     name: Build IOS
-#     runs-on: macos-latest
-#     steps:
-#       # Checks-out our repository under $GITHUB_WORKSPACE, so our job can access it
-#       - name: Checkout repository
-#         uses: actions/checkout@v2
-#       # Install flutter
-#       - name: Flutter get
-#         uses: subosito/flutter-action@v1
-#         with:
-#           flutter-version: '3.7.3'
+  #   lay_source_ve:
+  #     name: Build IOS
+  #     runs-on: macos-latest
+  #     steps:
+  #       # Checks-out our repository under $GITHUB_WORKSPACE, so our job can access it
+  #       - name: Checkout repository
+  #         uses: actions/checkout@v2
+  #       # Install flutter
+  #       - name: Flutter get
+  #         uses: subosito/flutter-action@v1
+  #         with:
+  #           flutter-version: '3.7.3'
 
-#       # Install your project's dependencies
-#       - run: flutter pub get
+  #       # Install your project's dependencies
+  #       - run: flutter pub get
 
 
   build_android:
@@ -42,4 +42,14 @@ jobs:
         run: echo ::set-output name=branch::${GITHUB_REF#refs/*/}
 
       - run: flutter pub get
-      - run: flutter build apk 
+      - run: flutter build apk
+
+
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/flutter-apk/app-dev-release.apk"
+          tag: v1.0.${{ github.run_number }}
+          token: "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"
+          allowUpdates: true
+          replacesArtifacts: false
