@@ -44,8 +44,9 @@ jobs:
 
       - run: flutter --version
 
-
       # Install your project's dependencies
+      - run: flutter clean
+      - run: flutter doctor
       - run: flutter pub get
 
       # Build and sign the ipa using a single flutter command
